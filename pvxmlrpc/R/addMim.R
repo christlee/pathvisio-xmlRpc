@@ -1,4 +1,4 @@
-addMim <- function(pathway, name, startNode, endNode, type, lineID=" ", linesource="", host="localhost", port=9000) {
+addMim <- function(pathway, name, startNode, endNode, type, lineID=" ", linesource="", dir="", host="localhost", port=9000) {
 
   if (match(type, c(
     "catalysis",
@@ -16,7 +16,9 @@ addMim <- function(pathway, name, startNode, endNode, type, lineID=" ", linesour
     "gap"), 0) == 0) stop("Unknown MIM type");
   
   endAnnotation = paste("mim-",type,sep="")
+  startAnnotation = ""
+  if (match(type, c("binding","covalent-bond","gap"), 0) == 0) startAnnotation = endAnnotation;
 
 
-  addLine(pathway, name, startNode, endNode, "", endAnnotation, lineID, linesource, host, port)
+  addLine(pathway, name, startNode, endNode, startAnnotation, endAnnotation, lineID, linesource, dir, host, port)
 }
