@@ -43,8 +43,7 @@ addGeneProductNode(pathway,name,host="localhost",port=9000,ref="",comment="",dat
 }
 \note{
 graphId is currently retrieved by splitting the line which is returned from PathVisio-RPC.
-This is not a nice way of doing that, and in the future this might prove a problem.
-But as of now it's the only way to return the graphID.
+This is just a temporary solution to retrieve the right graphId.
 }
 \author{
 Anwesha Dutta
